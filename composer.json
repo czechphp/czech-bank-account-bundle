@@ -1,0 +1,52 @@
+{
+    "name": "czechphp/czech-bank-account-bundle",
+    "type": "symfony-bundle",
+    "description": "Symfony integration for Czech bank account library",
+    "keywords": [
+        "bank account number",
+        "bank code",
+        "payment system code",
+        "variable symbol",
+        "specific symbol",
+        "kód banky",
+        "číselník kódů platebního styku",
+        "Czech republic",
+        "Czechia",
+        "Symfony",
+        "Bundle"
+    ],
+    "license": "MIT",
+    "require": {
+        "php": "^7.1",
+        "symfony/config": "^3.4|^4.0",
+        "symfony/dependency-injection": "^3.4|^4.0",
+        "symfony/form": "^3.4|^4.0",
+        "symfony/http-kernel": "^3.4|^4.0",
+        "symfony/validator": "^3.4|^4.0",
+        "czechphp/czech-bank-account": "^1.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^7.0"
+    },
+    "authors": [
+        {
+            "name": "Lukáš Mencl",
+            "email": "tetra.jinak@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Czechphp\\CzechBankAccountBundle\\": ""
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Czechphp\\CzechBankAccountBundle\\Tests\\": "Tests/"
+        }
+    },
+    "scripts": {
+        "test": [
+            "phpunit"
+        ]
+    }
+}

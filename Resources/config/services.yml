@@ -1,0 +1,33 @@
+services:
+    Czechphp\CzechBankAccountBundle\Validator\Constraints\BankAccountNumberValidator:
+        arguments: ['@Czechphp\CzechBankAccount\Validator\BankAccountNumberValidator']
+        tags: ['validator.constraint_validator']
+
+    Czechphp\CzechBankAccountBundle\Validator\Constraints\BankCodeValidator:
+        arguments: ['@Czechphp\CzechBankAccount\Validator\BankCodeValidator']
+        tags: ['validator.constraint_validator']
+
+    Czechphp\CzechBankAccountBundle\Form\Type\BankCodeType:
+        arguments: ['@czech_bank_account.bank_code_loader']
+        tags: ['form.type']
+
+    czech_bank_account.bank_code_loader:
+        class: Czechphp\CzechBankAccount\Loader\BankCode\FilesystemLoader
+        public: true
+
+    Czechphp\CzechBankAccountBundle\Validator\Constraints\VariableSymbolValidator:
+        arguments: ['@Czechphp\CzechBankAccount\Validator\VariableSymbolValidator']
+        tags: ['validator.constraint_validator']
+
+    Czechphp\CzechBankAccountBundle\Validator\Constraints\SpecificSymbolValidator:
+        arguments: ['@Czechphp\CzechBankAccount\Validator\SpecificSymbolValidator']
+        tags: ['validator.constraint_validator']
+
+    Czechphp\CzechBankAccount\Validator\BankAccountNumberValidator:
+
+    Czechphp\CzechBankAccount\Validator\BankCodeValidator:
+        arguments: ['@czech_bank_account.bank_code_loader']
+
+    Czechphp\CzechBankAccount\Validator\VariableSymbolValidator:
+
+    Czechphp\CzechBankAccount\Validator\SpecificSymbolValidator:
