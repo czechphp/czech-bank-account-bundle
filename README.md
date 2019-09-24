@@ -47,3 +47,6 @@ return [
 ## Documentation
 
 * [Constraints](Resources/doc/constraints.md)
+* [Form Types](Resources/doc/form-types.md)
+* [Loaders](Resources/doc/loaders.md)
+* Underlying library [czechphp/czech-bank-account](https://github.com/czechphp/czech-bank-account)
