@@ -7,6 +7,7 @@ use Czechphp\CzechBankAccount\Validator\ValidatorInterface;
 use Czechphp\CzechBankAccountBundle\Validator\Constraints\BankAccountNumber;
 use Czechphp\CzechBankAccountBundle\Validator\Constraints\BankAccountNumberValidator;
 use PHPUnit\Framework\MockObject\MockObject;
+use Symfony\Component\Validator\Constraint;
 use Symfony\Component\Validator\Exception\ConstraintDefinitionException;
 use Symfony\Component\Validator\Exception\UnexpectedTypeException;
 use Symfony\Component\Validator\Test\ConstraintValidatorTestCase;
@@ -89,6 +90,18 @@ class BankAccountNumberValidatorTest extends ConstraintValidatorTestCase
         $this->validator->validate(new ToStringObject('19'), new BankAccountNumber());
 
         $this->assertNoViolation();
+    }
+
+    public function testInvalidConstraint()
+    {
+        $this->baseValidator->expects($this->never())->method('validate');
+
+        $this->expectException(UnexpectedTypeException::class);
+
+        /** @var MockObject|Constraint $constraint */
+        $constraint = $this->createMock(Constraint::class);
+
+        $this->validator->validate('19', $constraint);
     }
 
     public function testInvalidTypeOption()
