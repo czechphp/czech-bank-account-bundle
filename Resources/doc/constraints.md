@@ -130,6 +130,52 @@ You can use the following parameters in this message:
 * `{{ value }}` The current (invalid) value
 
 
+# ConstantSymbol
+
+> Czech: Konstantní symbol
+
+Validates that a value is valid constant symbol string.
+
+## Basic usage
+
+```php
+<?php
+
+// src/Entity/BankAccount.php
+namespace App\Entity;
+
+use Czechphp\CzechBankAccountBundle\Validator\Constraints as CzechphpAssert;
+
+class BankAccount
+{
+    /**
+     * @CzechphpAssert\ConstantSymbol(
+     *     message="The value '{{ value }}' is not valid constant symbol.",
+     *     filter={"include": ["all"]}
+     * )
+     */
+    private $constantSymbol;
+}
+```
+## Options
+
+### filter
+
+**type**: `array|null` **default**: `null`
+
+This option is optional and defines the criteria of filter.
+By defining filter value you enable validation against database of known constant symbols.
+
+### message
+
+**type**: `string` **default**: `This is not valid constant symbol.`
+
+This message is shown if the underlying data is not a valid constant symbol.
+
+You can use the following parameters in this message:
+* `{{ value }}` The current (invalid) value
+
+
 # SpecificSymbol
 
 > Czech: Specifický symbol

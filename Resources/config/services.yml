@@ -15,8 +15,28 @@ services:
         class: Czechphp\CzechBankAccount\Loader\BankCode\FilesystemLoader
         public: true
 
+    Czechphp\CzechBankAccount\ConstantSymbol\Loader\LoaderInterface:
+        alias: czech_bank_account.constant_symbol_loader
+
+    czech_bank_account.constant_symbol_loader:
+        class: Czechphp\CzechBankAccount\ConstantSymbol\Loader\ArrayRequireLoader
+
+    Czechphp\CzechBankAccount\ConstantSymbol\Filter\Filter:
+        arguments: ['@czech_bank_account.constant_symbol_loader']
+
+    Czechphp\CzechBankAccount\ConstantSymbol\Filter\FilterInterface:
+        alias: czech_bank_account.constant_symbol_filter
+
+    czech_bank_account.constant_symbol_filter:
+        class: Czechphp\CzechBankAccount\ConstantSymbol\Filter\ArrayCacheFilter
+        arguments: ['@Czechphp\CzechBankAccount\ConstantSymbol\Filter\Filter']
+
     Czechphp\CzechBankAccountBundle\Validator\Constraints\VariableSymbolValidator:
         arguments: ['@Czechphp\CzechBankAccount\Validator\VariableSymbolValidator']
+        tags: ['validator.constraint_validator']
+
+    Czechphp\CzechBankAccountBundle\Validator\Constraints\ConstantSymbolValidator:
+        arguments: ['@Czechphp\CzechBankAccount\Validator\ConstantSymbolValidator']
         tags: ['validator.constraint_validator']
 
     Czechphp\CzechBankAccountBundle\Validator\Constraints\SpecificSymbolValidator:
@@ -29,5 +49,8 @@ services:
         arguments: ['@czech_bank_account.bank_code_loader']
 
     Czechphp\CzechBankAccount\Validator\VariableSymbolValidator:
+
+    Czechphp\CzechBankAccount\Validator\ConstantSymbolValidator:
+        arguments: ['@czech_bank_account.constant_symbol_filter']
 
     Czechphp\CzechBankAccount\Validator\SpecificSymbolValidator:

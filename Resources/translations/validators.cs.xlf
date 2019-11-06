@@ -18,6 +18,10 @@
                 <source>This is not valid specific symbol.</source>
                 <target>Tato hodnota není platný specifický symbol.</target>
             </trans-unit>
+            <trans-unit id="5">
+                <source>This is not valid constant symbol.</source>
+                <target>Tato hodnota není platný konstantní symbol.</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>
