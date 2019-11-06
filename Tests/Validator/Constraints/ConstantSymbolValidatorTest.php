@@ -9,6 +9,7 @@ use Czechphp\CzechBankAccountBundle\Validator\Constraints\ConstantSymbol;
 use Czechphp\CzechBankAccountBundle\Validator\Constraints\ConstantSymbolValidator;
 use PHPUnit\Framework\MockObject\MockObject;
 use Symfony\Component\Validator\Constraint;
+use Symfony\Component\Validator\Exception\ConstraintDefinitionException;
 use Symfony\Component\Validator\Exception\UnexpectedTypeException;
 use Symfony\Component\Validator\Test\ConstraintValidatorTestCase;
 
@@ -99,6 +100,15 @@ class ConstantSymbolValidatorTest extends ConstraintValidatorTestCase
         $constraint = $this->createMock(Constraint::class);
 
         $this->validator->validate('25596641', $constraint);
+    }
+
+    public function testInvalidFilterOption()
+    {
+        $this->baseValidator->expects($this->never())->method('validate');
+
+        $this->expectException(ConstraintDefinitionException::class);
+
+        new ConstantSymbol('foo');
     }
 
     public function testValid()

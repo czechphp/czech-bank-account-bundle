@@ -7,7 +7,6 @@ namespace Czechphp\CzechBankAccountBundle\Validator\Constraints;
 use Symfony\Component\Validator\Constraint;
 use Symfony\Component\Validator\Exception\ConstraintDefinitionException;
 use function is_array;
-use function sprintf;
 
 /**
  * @Annotation
@@ -33,7 +32,7 @@ final class ConstantSymbol extends Constraint
         parent::__construct($options);
 
         if ($this->filter !== null && !is_array($this->filter)) {
-            throw new ConstraintDefinitionException(sprintf('The option "filter" must be of type "%s".', ['array', 'null']));
+            throw new ConstraintDefinitionException('The option "filter" must be of type "array" or "null".');
         }
     }
 
