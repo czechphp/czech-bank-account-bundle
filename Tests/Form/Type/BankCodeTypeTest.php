@@ -16,7 +16,7 @@ class BankCodeTypeTest extends TypeTestCase
      */
     private $bankCodeLoader;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->bankCodeLoader = $this->createMock(LoaderInterface::class);
 

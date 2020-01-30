@@ -9,7 +9,6 @@ use PHPUnit\Framework\MockObject\MockObject;
 use Symfony\Component\Form\ChoiceList\View\ChoiceView;
 use Symfony\Component\Form\PreloadedExtension;
 use Symfony\Component\Form\Test\TypeTestCase;
-use function var_dump;
 
 class ConstantSymbolTypeTest extends TypeTestCase
 {
@@ -18,7 +17,7 @@ class ConstantSymbolTypeTest extends TypeTestCase
      */
     private $constantSymbolFilter;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->constantSymbolFilter = $this->createMock(FilterInterface::class);
 
