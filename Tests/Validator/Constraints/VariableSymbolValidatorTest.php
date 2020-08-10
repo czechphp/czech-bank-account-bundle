@@ -1,10 +1,9 @@
 <?php
 
-namespace Czechphp\CzechBankAccountBundle\Tests\Validator\Constraint;
+namespace Czechphp\CzechBankAccountBundle\Tests\Validator\Constraints;
 
 use Czechphp\CzechBankAccount\Validator\VariableSymbolValidator as BaseVariableSymbolValidator;
 use Czechphp\CzechBankAccount\Validator\ValidatorInterface;
-use Czechphp\CzechBankAccountBundle\Tests\Validator\Constraints\ToStringObject;
 use Czechphp\CzechBankAccountBundle\Validator\Constraints\VariableSymbol;
 use Czechphp\CzechBankAccountBundle\Validator\Constraints\VariableSymbolValidator;
 use PHPUnit\Framework\MockObject\MockObject;

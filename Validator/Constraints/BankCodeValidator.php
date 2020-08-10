@@ -9,7 +9,6 @@ use Czechphp\CzechBankAccount\Validator\ValidatorInterface;
 use Symfony\Component\Validator\Constraint;
 use Symfony\Component\Validator\ConstraintValidator;
 use Symfony\Component\Validator\Exception\UnexpectedTypeException;
-use Symfony\Component\Validator\Exception\UnexpectedValueException;
 
 final class BankCodeValidator extends ConstraintValidator
 {
@@ -59,7 +58,7 @@ final class BankCodeValidator extends ConstraintValidator
                 return;
             case BaseBankCodeValidator::ERROR_NONE:
             default:
-                return;
+                break;
         }
     }
 }

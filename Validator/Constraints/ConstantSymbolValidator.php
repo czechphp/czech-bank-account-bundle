@@ -62,7 +62,7 @@ final class ConstantSymbolValidator extends ConstraintValidator
                 return;
             case BaseConstantSymbolValidator::ERROR_NONE:
             default:
-                return;
+                break;
         }
     }
 }

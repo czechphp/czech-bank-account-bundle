@@ -87,7 +87,7 @@ final class BankAccountNumberValidator extends ConstraintValidator
                 return;
             case BaseBankAccountNumberValidator::ERROR_NONE:
             default:
-                return;
+                break;
         }
     }
 }

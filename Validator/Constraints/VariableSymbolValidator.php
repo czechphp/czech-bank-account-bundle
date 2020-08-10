@@ -9,7 +9,6 @@ use Czechphp\CzechBankAccount\Validator\VariableSymbolValidator as BaseVariableS
 use Symfony\Component\Validator\Constraint;
 use Symfony\Component\Validator\ConstraintValidator;
 use Symfony\Component\Validator\Exception\UnexpectedTypeException;
-use Symfony\Component\Validator\Exception\UnexpectedValueException;
 
 final class VariableSymbolValidator extends ConstraintValidator
 {
@@ -52,7 +51,7 @@ final class VariableSymbolValidator extends ConstraintValidator
                 return;
             case BaseVariableSymbolValidator::ERROR_NONE:
             default:
-                return;
+                break;
         }
     }
 }

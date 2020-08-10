@@ -1,6 +1,6 @@
 <?php
 
-namespace Czechphp\BankCodeBundle\Tests\Form\Type;
+namespace Czechphp\CzechBankAccountBundle\Tests\Form\Type;
 
 use Czechphp\CzechBankAccount\Loader\BankCode\LoaderInterface;
 use Czechphp\CzechBankAccountBundle\Form\Type\BankCodeType;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Czechphp\BankCodeBundle\Tests\Form\Type;
+namespace Czechphp\CzechBankAccountBundle\Tests\Form\Type;
 
 use Czechphp\CzechBankAccount\ConstantSymbol\Filter\FilterInterface;
 use Czechphp\CzechBankAccount\ConstantSymbol\Loader\LoaderInterface;

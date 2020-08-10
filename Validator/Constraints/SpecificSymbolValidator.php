@@ -51,7 +51,7 @@ final class SpecificSymbolValidator extends ConstraintValidator
                 return;
             case BaseSpecificSymbolValidator::ERROR_NONE:
             default:
-                return;
+                break;
         }
     }
 }
