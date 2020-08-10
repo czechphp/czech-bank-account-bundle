@@ -1,5 +1,9 @@
 language: php
 
+cache:
+    directories:
+        - $HOME/.composer/cache/files
+
 matrix:
     include:
         - php: 7.1
@@ -27,7 +31,7 @@ matrix:
 
 install:
     - composer require symfony/flex --no-update
-    - composer install --no-interaction --prefer-source
+    - composer install --prefer-dist --no-interaction
 
 script:
     - vendor/bin/phpunit --coverage-clover=coverage.xml

@@ -18,15 +18,15 @@
     "license": "MIT",
     "require": {
         "php": "^7.1",
-        "symfony/config": "^3.4|^4|^5",
-        "symfony/dependency-injection": "^3.4|^4|^5",
-        "symfony/form": "^3.4|^4|^5",
-        "symfony/http-kernel": "^3.4|^4|^5",
-        "symfony/validator": "^3.4|^4|^5",
+        "symfony/config": "^3.4 || ^4 || ^5",
+        "symfony/dependency-injection": "^3.4 || ^4 || ^5",
+        "symfony/form": "^3.4 || ^4 || ^5",
+        "symfony/http-kernel": "^3.4 || ^4 || ^5",
+        "symfony/validator": "^3.4 || ^4 || ^5",
         "czechphp/czech-bank-account": "^1.1"
     },
     "require-dev": {
-        "phpunit/phpunit": "^7.0"
+        "phpunit/phpunit": "^7.5"
     },
     "authors": [
         {
@@ -46,10 +46,5 @@
         "psr-4": {
             "Czechphp\\CzechBankAccountBundle\\Tests\\": "Tests/"
         }
-    },
-    "scripts": {
-        "test": [
-            "phpunit"
-        ]
     }
 }
