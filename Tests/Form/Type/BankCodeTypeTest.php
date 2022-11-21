@@ -23,7 +23,7 @@ class BankCodeTypeTest extends TypeTestCase
         parent::setUp();
     }
 
-    protected function getExtensions()
+    protected function getExtensions(): array
     {
         $bankCodeType = new BankCodeType($this->bankCodeLoader);
 
@@ -32,7 +32,7 @@ class BankCodeTypeTest extends TypeTestCase
         ];
     }
 
-    public function testChoiceView()
+    public function testChoiceView(): void
     {
         $this->bankCodeLoader->method('load')->willReturn([
             [
@@ -52,7 +52,7 @@ class BankCodeTypeTest extends TypeTestCase
         $form = $this->factory->create(BankCodeType::class);
         $choices = $form->createView()->vars['choices'];
 
-        $this->assertContains(new ChoiceView('0100', '0100', '0100 - Komerční banka, a.s.'), $choices, '', false, false);
-        $this->assertContains(new ChoiceView('0300', '0300', '0300 - Československá obchodní banka, a. s.'), $choices, '', false, false);
+        $this->assertContainsEquals(new ChoiceView('0100', '0100', '0100 - Komerční banka, a.s.'), $choices);
+        $this->assertContainsEquals(new ChoiceView('0300', '0300', '0300 - Československá obchodní banka, a. s.'), $choices);
     }
 }

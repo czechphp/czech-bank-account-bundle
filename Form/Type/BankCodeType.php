@@ -12,17 +12,14 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 final class BankCodeType extends AbstractType
 {
-    /**
-     * @var LoaderInterface
-     */
-    private $bankCodeLoader;
+    private LoaderInterface $bankCodeLoader;
 
     public function __construct(LoaderInterface $bankCodeLoader)
     {
         $this->bankCodeLoader = $bankCodeLoader;
     }
 
-    public function configureOptions(OptionsResolver $resolver)
+    public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
             'choice_loader' => new CallbackChoiceLoader(function () {
@@ -43,7 +40,7 @@ final class BankCodeType extends AbstractType
         ]);
     }
 
-    public function getParent()
+    public function getParent(): ?string
     {
         return ChoiceType::class;
     }

@@ -15,10 +15,7 @@ use function method_exists;
 
 final class BankAccountNumberValidator extends ConstraintValidator
 {
-    /**
-     * @var ValidatorInterface
-     */
-    private $bankAccountNumberValidator;
+    private ValidatorInterface $bankAccountNumberValidator;
 
     public function __construct(ValidatorInterface $bankAccountNumberValidator)
     {
@@ -29,7 +26,7 @@ final class BankAccountNumberValidator extends ConstraintValidator
      * @param mixed $value
      * @param Constraint|BankAccountNumber $constraint
      */
-    public function validate($value, Constraint $constraint)
+    public function validate($value, Constraint $constraint): void
     {
         if (!$constraint instanceof BankAccountNumber) {
             throw new UnexpectedTypeException($constraint, BankAccountNumber::class);

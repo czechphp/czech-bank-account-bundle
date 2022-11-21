@@ -12,10 +12,7 @@ use Symfony\Component\Validator\Exception\UnexpectedTypeException;
 
 final class BankCodeValidator extends ConstraintValidator
 {
-    /**
-     * @var ValidatorInterface
-     */
-    private $bankCodeValidator;
+    private ValidatorInterface $bankCodeValidator;
 
     public function __construct(ValidatorInterface $bankCodeValidator)
     {
@@ -25,7 +22,7 @@ final class BankCodeValidator extends ConstraintValidator
     /**
      * {@inheritDoc}
      */
-    public function validate($value, Constraint $constraint)
+    public function validate($value, Constraint $constraint): void
     {
         if (!$constraint instanceof BankCode) {
             throw new UnexpectedTypeException($constraint, BankCode::class);

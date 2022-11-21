@@ -12,10 +12,7 @@ use Symfony\Component\Validator\Exception\UnexpectedTypeException;
 
 final class SpecificSymbolValidator extends ConstraintValidator
 {
-    /**
-     * @var ValidatorInterface
-     */
-    private $specificSymbolValidator;
+    private ValidatorInterface $specificSymbolValidator;
 
     public function __construct(ValidatorInterface $specificSymbolValidator)
     {
@@ -25,7 +22,7 @@ final class SpecificSymbolValidator extends ConstraintValidator
     /**
      * {@inheritDoc}
      */
-    public function validate($value, Constraint $constraint)
+    public function validate($value, Constraint $constraint): void
     {
         if (!$constraint instanceof SpecificSymbol) {
             throw new UnexpectedTypeException($constraint, SpecificSymbol::class);

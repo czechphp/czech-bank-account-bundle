@@ -24,7 +24,7 @@ class ConstantSymbolTypeTest extends TypeTestCase
         parent::setUp();
     }
 
-    protected function getExtensions()
+    protected function getExtensions(): array
     {
         $constantSymbolType = new ConstantSymbolType($this->constantSymbolFilter);
 
@@ -33,7 +33,7 @@ class ConstantSymbolTypeTest extends TypeTestCase
         ];
     }
 
-    public function testChoiceView()
+    public function testChoiceView(): void
     {
         $this->constantSymbolFilter->method('filter')->willReturn([
             [
@@ -51,7 +51,7 @@ class ConstantSymbolTypeTest extends TypeTestCase
         $form = $this->factory->create(ConstantSymbolType::class);
         $choices = $form->createView()->vars['choices'];
 
-        $this->assertContains(new ChoiceView('0001', '0001', '0001 - foo'), $choices, '', false, false);
-        $this->assertContains(new ChoiceView('0002', '0002', '0002 - bar'), $choices, '', false, false);
+        $this->assertContainsEquals(new ChoiceView('0001', '0001', '0001 - foo'), $choices);
+        $this->assertContainsEquals(new ChoiceView('0002', '0002', '0002 - bar'), $choices);
     }
 }

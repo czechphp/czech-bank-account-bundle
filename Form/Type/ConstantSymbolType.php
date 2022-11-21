@@ -14,17 +14,14 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 final class ConstantSymbolType extends AbstractType
 {
-    /**
-     * @var FilterInterface
-     */
-    private $filter;
+    private FilterInterface $filter;
 
     public function __construct(FilterInterface $filter)
     {
         $this->filter = $filter;
     }
 
-    public function configureOptions(OptionsResolver $resolver)
+    public function configureOptions(OptionsResolver $resolver): void
     {
         $choiceLoader = function (Options $options) {
             $criteria = $options['criteria'];
@@ -55,7 +52,7 @@ final class ConstantSymbolType extends AbstractType
         $resolver->setAllowedTypes('criteria', 'array');
     }
 
-    public function getParent()
+    public function getParent(): ?string
     {
         return ChoiceType::class;
     }
