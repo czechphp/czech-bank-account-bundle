@@ -26,7 +26,7 @@ final class BankAccountNumberValidator extends ConstraintValidator
      * @param mixed $value
      * @param Constraint|BankAccountNumber $constraint
      */
-    public function validate($value, Constraint $constraint): void
+    public function validate(mixed $value, Constraint $constraint): void
     {
         if (!$constraint instanceof BankAccountNumber) {
             throw new UnexpectedTypeException($constraint, BankAccountNumber::class);

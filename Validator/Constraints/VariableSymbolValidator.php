@@ -22,7 +22,7 @@ final class VariableSymbolValidator extends ConstraintValidator
     /**
      * {@inheritDoc}
      */
-    public function validate($value, Constraint $constraint): void
+    public function validate(mixed $value, Constraint $constraint): void
     {
         if (!$constraint instanceof VariableSymbol) {
             throw new UnexpectedTypeException($constraint, VariableSymbol::class);

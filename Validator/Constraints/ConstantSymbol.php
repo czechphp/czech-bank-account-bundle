@@ -13,6 +13,7 @@ use function is_array;
  *
  * @Target({"PROPERTY", "METHOD", "ANNOTATION"})
  */
+#[\Attribute(\Attribute::TARGET_PROPERTY | \Attribute::TARGET_METHOD | \Attribute::IS_REPEATABLE)]
 final class ConstantSymbol extends Constraint
 {
     public const FORMAT_ERROR = '7f3de56d-935f-4d69-b556-534627c666ee';
@@ -23,9 +24,9 @@ final class ConstantSymbol extends Constraint
         self::INVALID_CODE_ERROR => 'INVALID_CODE_ERROR',
     ];
 
-    public $filter = null;
+    public ?array $filter = null;
 
-    public $message = 'This is not valid constant symbol.';
+    public string $message = 'This is not valid constant symbol.';
 
     public function __construct($options = null)
     {
@@ -36,7 +37,7 @@ final class ConstantSymbol extends Constraint
         }
     }
 
-    public function getDefaultOption()
+    public function getDefaultOption(): ?string
     {
         return 'filter';
     }

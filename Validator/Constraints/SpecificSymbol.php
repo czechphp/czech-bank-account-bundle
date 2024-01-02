@@ -11,6 +11,7 @@ use Symfony\Component\Validator\Constraint;
  *
  * @Target({"PROPERTY", "METHOD", "ANNOTATION"})
  */
+#[\Attribute(\Attribute::TARGET_PROPERTY | \Attribute::TARGET_METHOD | \Attribute::IS_REPEATABLE)]
 final class SpecificSymbol extends Constraint
 {
     public const FORMAT_ERROR = '78c937a5-aa3d-460b-984e-3fdf40928ce8';
@@ -19,5 +20,5 @@ final class SpecificSymbol extends Constraint
         self::FORMAT_ERROR => 'FORMAT_ERROR',
     ];
 
-    public $message = 'This is not valid specific symbol.';
+    public string $message = 'This is not valid specific symbol.';
 }

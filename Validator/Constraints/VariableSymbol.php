@@ -11,6 +11,7 @@ use Symfony\Component\Validator\Constraint;
  *
  * @Target({"PROPERTY", "METHOD", "ANNOTATION"})
  */
+#[\Attribute(\Attribute::TARGET_PROPERTY | \Attribute::TARGET_METHOD | \Attribute::IS_REPEATABLE)]
 final class VariableSymbol extends Constraint
 {
     public const FORMAT_ERROR = '7f3de56d-935f-4d69-b556-534627c666ee';
@@ -19,5 +20,5 @@ final class VariableSymbol extends Constraint
         self::FORMAT_ERROR => 'FORMAT_ERROR',
     ];
 
-    public $message = 'This is not valid variable symbol.';
+    public string $message = 'This is not valid variable symbol.';
 }

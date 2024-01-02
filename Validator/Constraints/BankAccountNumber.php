@@ -13,6 +13,7 @@ use Symfony\Component\Validator\Exception\ConstraintDefinitionException;
  *
  * @Target({"PROPERTY", "METHOD", "ANNOTATION"})
  */
+#[\Attribute(\Attribute::TARGET_PROPERTY | \Attribute::TARGET_METHOD | \Attribute::IS_REPEATABLE)]
 final class BankAccountNumber extends Constraint
 {
     public const ERROR_SECOND_PART_CHECKSUM = '163b471f-81a1-44fc-88e4-8e6c3025d177';
@@ -29,16 +30,16 @@ final class BankAccountNumber extends Constraint
         self::ERROR_FORMAT_VARIABLE => 'ERROR_FORMAT_VARIABLE',
     ];
 
-    protected static $types = [
+    protected static array $types = [
         BaseBankAccountNumberValidator::OPTION_TYPE_VARIABLE,
         BaseBankAccountNumberValidator::OPTION_TYPE_CONSTANT,
     ];
 
-    public $type = BaseBankAccountNumberValidator::OPTION_TYPE_VARIABLE;
+    public string $type = BaseBankAccountNumberValidator::OPTION_TYPE_VARIABLE;
 
-    public $message = 'This is not valid bank account number.';
+    public string $message = 'This is not valid bank account number.';
 
-    public function __construct($options = null)
+    public function __construct(mixed $options = null)
     {
         parent::__construct($options);
 
@@ -47,7 +48,7 @@ final class BankAccountNumber extends Constraint
         }
     }
 
-    public function getDefaultOption()
+    public function getDefaultOption(): ?string
     {
         return 'type';
     }
