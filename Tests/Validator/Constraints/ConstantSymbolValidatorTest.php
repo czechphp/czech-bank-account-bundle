@@ -9,9 +9,9 @@ use Czechphp\CzechBankAccountBundle\Validator\Constraints\ConstantSymbolValidato
 use PHPUnit\Framework\MockObject\MockObject;
 use Symfony\Component\Validator\Constraint;
 use Symfony\Component\Validator\ConstraintValidatorInterface;
-use Symfony\Component\Validator\Exception\ConstraintDefinitionException;
 use Symfony\Component\Validator\Exception\UnexpectedTypeException;
 use Symfony\Component\Validator\Test\ConstraintValidatorTestCase;
+use TypeError;
 
 class ConstantSymbolValidatorTest extends ConstraintValidatorTestCase
 {
@@ -106,7 +106,7 @@ class ConstantSymbolValidatorTest extends ConstraintValidatorTestCase
     {
         $this->baseValidator->expects($this->never())->method('validate');
 
-        $this->expectException(ConstraintDefinitionException::class);
+        $this->expectException(TypeError::class);
 
         new ConstantSymbol('foo');
     }

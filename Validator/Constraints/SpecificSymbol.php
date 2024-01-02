@@ -21,4 +21,16 @@ final class SpecificSymbol extends Constraint
     ];
 
     public string $message = 'This is not valid specific symbol.';
+
+    public function __construct(
+        mixed $options = null,
+        string $message = null,
+        array $groups = null,
+        mixed $payload = null
+    )
+    {
+        parent::__construct($options, $groups, $payload);
+
+        $this->message = $message ?? $this->message;
+    }
 }

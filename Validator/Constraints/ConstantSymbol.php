@@ -5,8 +5,6 @@ declare(strict_types = 1);
 namespace Czechphp\CzechBankAccountBundle\Validator\Constraints;
 
 use Symfony\Component\Validator\Constraint;
-use Symfony\Component\Validator\Exception\ConstraintDefinitionException;
-use function is_array;
 
 /**
  * @Annotation
@@ -24,17 +22,25 @@ final class ConstantSymbol extends Constraint
         self::INVALID_CODE_ERROR => 'INVALID_CODE_ERROR',
     ];
 
+    /**
+     * @var array{include?: array, exclude?: array}|null
+     */
     public ?array $filter = null;
 
     public string $message = 'This is not valid constant symbol.';
 
-    public function __construct($options = null)
+    public function __construct(
+        mixed $options = null,
+        array $filter = null,
+        string $message = null,
+        array $groups = null,
+        mixed $payload = null
+    )
     {
-        parent::__construct($options);
+        parent::__construct($options, $groups, $payload);
 
-        if ($this->filter !== null && !is_array($this->filter)) {
-            throw new ConstraintDefinitionException('The option "filter" must be of type "array" or "null".');
-        }
+        $this->filter = $filter ?? $this->filter;
+        $this->message = $message ?? $this->message;
     }
 
     public function getDefaultOption(): ?string

@@ -39,9 +39,18 @@ final class BankAccountNumber extends Constraint
 
     public string $message = 'This is not valid bank account number.';
 
-    public function __construct(mixed $options = null)
+    public function __construct(
+        mixed $options = null,
+        string $type = null,
+        string $message = null,
+        array $groups = null,
+        mixed $payload = null
+    )
     {
-        parent::__construct($options);
+        parent::__construct($options, $groups, $payload);
+
+        $this->type = $type ?? $this->type;
+        $this->message = $message ?? $this->message;
 
         if (!in_array($this->type, self::$types)) {
             throw new ConstraintDefinitionException(sprintf('The option "type" must be one of "%s".', implode('", "', self::$types)));
