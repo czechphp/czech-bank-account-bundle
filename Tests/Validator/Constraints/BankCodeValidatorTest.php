@@ -8,6 +8,7 @@ use Czechphp\CzechBankAccountBundle\Validator\Constraints\BankCode;
 use Czechphp\CzechBankAccountBundle\Validator\Constraints\BankCodeValidator;
 use PHPUnit\Framework\MockObject\MockObject;
 use Symfony\Component\Validator\Constraint;
+use Symfony\Component\Validator\ConstraintValidatorInterface;
 use Symfony\Component\Validator\Exception\UnexpectedTypeException;
 use Symfony\Component\Validator\Test\ConstraintValidatorTestCase;
 
@@ -18,7 +19,7 @@ class BankCodeValidatorTest extends ConstraintValidatorTestCase
      */
     private $baseValidator;
 
-    protected function createValidator()
+    protected function createValidator(): ConstraintValidatorInterface
     {
         $this->baseValidator = $this->createMock(ValidatorInterface::class);
 
