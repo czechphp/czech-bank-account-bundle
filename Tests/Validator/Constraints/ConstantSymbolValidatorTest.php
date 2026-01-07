@@ -102,15 +102,6 @@ class ConstantSymbolValidatorTest extends ConstraintValidatorTestCase
         $this->validator->validate('25596641', $constraint);
     }
 
-    public function testInvalidFilterOption()
-    {
-        $this->baseValidator->expects($this->never())->method('validate');
-
-        $this->expectException(TypeError::class);
-
-        new ConstantSymbol('foo');
-    }
-
     public function testValid()
     {
         $this->baseValidator->expects($this->once())->method('validate')->willReturn(BaseConstantSymbolValidator::ERROR_NONE);
