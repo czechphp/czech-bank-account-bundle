@@ -150,21 +150,13 @@ class BankAccount
 {
     /**
      * @CzechphpAssert\ConstantSymbol(
-     *     message="The value '{{ value }}' is not valid constant symbol.",
-     *     filter={"include": ["all"]}
+     *     message="The value '{{ value }}' is not valid constant symbol."
      * )
      */
     private $constantSymbol;
 }
 ```
 ## Options
-
-### filter
-
-**type**: `array|null` **default**: `null`
-
-This option is optional and defines the criteria of filter.
-By defining filter value you enable validation against database of known constant symbols.
 
 ### message
 

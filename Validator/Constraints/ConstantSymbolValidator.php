@@ -38,18 +38,7 @@ final class ConstantSymbolValidator extends ConstraintValidator
 
         $value = (string) $value;
 
-        $options = [
-            'filter' => $constraint->filter,
-        ];
-
-        switch ($this->constantSymbolValidator->validate($value, $options)) {
-            case BaseConstantSymbolValidator::ERROR_INVALID_CODE:
-                $builder = $this->context->buildViolation($constraint->message);
-                $builder->setParameter('{{ value }}', $value);
-                $builder->setCode(ConstantSymbol::INVALID_CODE_ERROR);
-                $builder->addViolation();
-
-                return;
+        switch ($this->constantSymbolValidator->validate($value)) {
             case BaseConstantSymbolValidator::ERROR_FORMAT:
                 $builder = $this->context->buildViolation($constraint->message);
                 $builder->setParameter('{{ value }}', $value);

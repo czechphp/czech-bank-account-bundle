@@ -134,19 +134,4 @@ class ConstantSymbolValidatorTest extends ConstraintValidatorTestCase
         $builder->setCode(ConstantSymbol::FORMAT_ERROR);
         $builder->assertRaised();
     }
-
-    public function testInvalidCode()
-    {
-        $this->baseValidator->expects($this->once())->method('validate')->willReturn(BaseConstantSymbolValidator::ERROR_INVALID_CODE);
-
-        $value = '000001';
-        $constraint = new ConstantSymbol();
-
-        $this->validator->validate($value, $constraint);
-
-        $builder = $this->buildViolation($constraint->message);
-        $builder->setParameter('{{ value }}', $value);
-        $builder->setCode(ConstantSymbol::INVALID_CODE_ERROR);
-        $builder->assertRaised();
-    }
 }

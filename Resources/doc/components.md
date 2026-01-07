@@ -24,13 +24,3 @@ services:
             $converter: null # or service with converter for given file format
 
 ```
-
-# ConstantSymbol
-
-Underlying library component's [documentation](https://github.com/czechphp/czech-bank-account#constant-symbol-component).
-
-This bundle registers serviced `czech_bank_account.constant_symbol_loader` and `czech_bank_account.constant_symbol_filter`.
-These can be overridden to use any class implementing `Czechphp\CzechBankAccount\ConstantSymbol\Loader\LoaderInterface` or `Czechphp\CzechBankAccount\ConstantSymbol\Filter\FilterInterface`.
-
-Default loader `Czechphp\CzechBankAccount\ConstantSymbol\Loader\ArrayRequireLoader`.
-Default filter `Czechphp\CzechBankAccount\ConstantSymbol\Filter\ArrayCacheFilter`.

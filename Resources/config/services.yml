@@ -6,23 +6,6 @@ services:
     czech_bank_account.bank_code_loader:
         class: Czechphp\CzechBankAccount\Loader\BankCode\FilesystemLoader
 
-    # constant symbol component
-    Czechphp\CzechBankAccount\ConstantSymbol\Loader\LoaderInterface:
-        alias: czech_bank_account.constant_symbol_loader
-
-    czech_bank_account.constant_symbol_loader:
-        class: Czechphp\CzechBankAccount\ConstantSymbol\Loader\ArrayRequireLoader
-
-    Czechphp\CzechBankAccount\ConstantSymbol\Filter\FilterInterface:
-        alias: czech_bank_account.constant_symbol_filter
-
-    czech_bank_account.constant_symbol_filter:
-        class: Czechphp\CzechBankAccount\ConstantSymbol\Filter\ArrayCacheFilter
-        arguments: ['@Czechphp\CzechBankAccount\ConstantSymbol\Filter\Filter']
-
-    Czechphp\CzechBankAccount\ConstantSymbol\Filter\Filter:
-        arguments: ['@czech_bank_account.constant_symbol_loader']
-
     # form types
     Czechphp\CzechBankAccountBundle\Form\Type\BankCodeType:
         arguments: ['@czech_bank_account.bank_code_loader']
@@ -58,6 +41,5 @@ services:
     Czechphp\CzechBankAccount\Validator\VariableSymbolValidator:
 
     Czechphp\CzechBankAccount\Validator\ConstantSymbolValidator:
-        arguments: ['@czech_bank_account.constant_symbol_filter']
 
     Czechphp\CzechBankAccount\Validator\SpecificSymbolValidator:
