@@ -1,8 +1,5 @@
 # Czech Bank Account Symfony integration
 
-[![Build Status](https://travis-ci.com/czechphp/czech-bank-account-bundle.svg?branch=master)](https://travis-ci.com/czechphp/czech-bank-account-bundle)
-[![codecov](https://codecov.io/gh/czechphp/czech-bank-account-bundle/branch/master/graph/badge.svg)](https://codecov.io/gh/czechphp/czech-bank-account-bundle)
-
 Symfony integration of [czechphp/czech-bank-account](https://github.com/czechphp/czech-bank-account) library.
 
 ## Installation
